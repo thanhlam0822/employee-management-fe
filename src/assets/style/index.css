@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: myInter;
+
+}
+@font-face {
+    font-family: myInter;
+    src: url("@/assets/font/Inter/static/Inter-Regular.ttf");
+}
+.el-table {
+    --el-table-header-bg-color: #989BE5;
+    --el-table-text-color: #000;
+    --el-table-header-text-color: #000;
+
+}
+.el-table__header-wrapper {
+    border-radius: 10px;
+
+}
+li.number {
+    --el-pagination-button-bg-color: #8675EB;
+    border-radius: 5px;
+}
