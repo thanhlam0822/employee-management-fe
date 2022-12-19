@@ -7,7 +7,7 @@
       <common-menu></common-menu>
     </template>
     <template #list>
-      <list-department></list-department>
+      <list-employee></list-employee>
     </template>
   </CommonPageManagement>
 
@@ -16,7 +16,7 @@
 <script lang="ts" setup>
 import CommonHeader from "@/common/CommonHeader.vue"
 import CommonMenu   from "@/common/CommonMenu.vue"
-import ListDepartment from "@/components/ListDepartment.vue"
+import ListEmployee from "@/components/ListEmployee.vue"
 import CommonPageManagement from "@/common/CommonPageManagement.vue"
 </script>
 

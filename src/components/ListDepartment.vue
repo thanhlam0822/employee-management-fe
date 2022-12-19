@@ -1,18 +1,10 @@
 <template>
   <div class="action">
-    <div class="filter-name"><p>Name</p></div>
-    <div class="filter-input">
-
-      <el-col :span="15"  >
-        <el-input
-            v-model="query"
-            :prefix-icon="Search"
-        />
-      </el-col>
-    </div>
+    <filter-department v-model:query="query"  @test1="handleInput(query)"> </filter-department>
     <div class="add-department">
+      <add-department>
 
-      <add-department></add-department>
+      </add-department>
     </div>
   </div>
   <el-table class="el-table " :data="fakeData"  style="width: 100%">
@@ -34,16 +26,24 @@
       </template>
     </el-table-column>
   </el-table>
+  <common-filter-and-paginate>
+    <template #input>
+      <el-input v-model="query" @keyup.enter="handleInput(query)"></el-input>
+    </template>
+    <template #paginate>
+      <el-pagination @current-change="handleCurrentChange" background layout="prev, pager, next" :total="100" />
+    </template>
+  </common-filter-and-paginate>
 
- <common-list></common-list>
 </template>
 
 <script lang="ts" setup>
-import CommonList from "@/common/CommonList.vue"
+import CommonFilterAndPaginate from "@/common/CommonFilterAndPaginate.vue"
 import AddDepartment from "@/components/AddDepartment.vue"
+import FilterDepartment from "@/components/FilterDepartment.vue"
 import {ref} from "vue"
-import {Search } from '@element-plus/icons-vue'
-const query = ref('')
+let query=ref('')
+
 import axios from "axios";
 
 
@@ -63,8 +63,12 @@ axios.get("https://jsonplaceholder.typicode.com/users").then(
         fakeData.value.push(response.data[i])
       }
     })
-
-
+const handleCurrentChange = (val: number) => {
+  console.log(`current page: ${val}`)
+}
+const handleInput = (value:string) => {
+  console.log(value)
+}
 </script>
 
 <style scoped>
@@ -79,10 +83,7 @@ axios.get("https://jsonplaceholder.typicode.com/users").then(
 
 
 }
-.filter-input {
-  margin-left: 5px;
 
-}
 .add-department {
   position: absolute;
   right: 100px;

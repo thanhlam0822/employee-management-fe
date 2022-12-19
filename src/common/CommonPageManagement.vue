@@ -9,7 +9,8 @@
             <div class="list">
               <slot name="filter"></slot>
               <slot name="list"></slot>
-              <div class="pagination"><el-pagination background layout="prev, pager, next" :total="100" /></div>
+              
+
             </div>
           </el-main>
           <el-footer>Footer</el-footer>
@@ -20,7 +21,8 @@
 </template>
 
 <script lang="ts" setup>
-
+import {defineEmits} from "vue";
+defineEmits(['test'])
 </script>
 
 <style scoped>
@@ -32,15 +34,5 @@
   background-color: #F6F7FC;
   border-radius: 10px;
 }
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-.filter-action {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
 
-}
 </style>
