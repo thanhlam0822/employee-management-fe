@@ -1,15 +1,34 @@
 <template>
   <div class="common-menu">
     <ul class="common-menu-list">
-      <li class="common-menu-item"><router-link class="menu-link" to="/manage-department">Department Management</router-link> </li>
-      <li class="common-menu-item"><router-link class="menu-link" to="/manage-employee">Employee Management </router-link></li>
-      <li class="common-menu-item"><router-link class="menu-link" to="/manage-project">Project Management</router-link></li>
+        <li    class="common-menu-item" v-for="item in menuList" :key="item" >
+          <router-link     class="menu-link " :to="item.link">
+              {{item.item}}
+          </router-link>
+
+        </li>
+
     </ul>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref} from 'vue'
 
+let selected = ref("Department Management")
+
+
+
+let menuList = ref([
+  {item:"Department Management",link:"/manage-department"},
+  {item:"Employee Management",link:"/manage-employee"},
+  {item:"Project Management",link:"/manage-project"}
+])
+let isActive = (index:string) => {
+  selected.value  = index
+  console.log(index)
+
+}
 </script>
 <style scoped>
 .common-menu {
@@ -26,22 +45,32 @@
   list-style: none;
 
 
+
 }
 .common-menu-item {
 
   height: 10vh;
   padding-top:45px;
-  margin-left: 10px;
+  background-color: #F9FAFE;
+  border-radius: 20px;
+  text-align: center;
+
+  margin: 30px 10px;
+
+
 
 }
 .menu-link {
   text-decoration: none;
   color: #000;
+
 }
 .menu-link:hover {
-  font-size: 17px;
+  font-size: 15px;
 }
-th.el-table_1_column_1.is-leaf.el-table__cell {
-  background-color: #989BE5;
+.router-link-active{
+  background-color: yellowgreen ;
+  padding: 10px 0px;
+  border-radius: 10px;
 }
 </style>

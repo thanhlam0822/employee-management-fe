@@ -1,9 +1,19 @@
 <template>
-  <router-view> </router-view>
+  <CommonPageManagement>
+
+    <template #list>
+      <router-view> </router-view>
+    </template>
+  </CommonPageManagement>
+
 </template>
+
 <script lang="ts" setup>
 
+import CommonMenu   from "@/common/CommonMenu.vue"
+import CommonPageManagement from "@/layout/PageManagement.vue"
 </script>
-<style>
+
+<style scoped>
 
 </style>

@@ -1,16 +1,15 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-header><slot name="header"></slot></el-header>
+      <el-header><common-header></common-header></el-header>
       <el-container>
-        <el-aside width="300px"><slot name="menu"></slot></el-aside>
+        <el-aside width="300px"><common-menu></common-menu></el-aside>
         <el-container>
           <el-main>
             <div class="list">
               <slot name="filter"></slot>
-              <slot name="list"></slot>
-              
-
+              <slot name="list">
+              </slot>
             </div>
           </el-main>
           <el-footer>Footer</el-footer>
@@ -22,6 +21,8 @@
 
 <script lang="ts" setup>
 import {defineEmits} from "vue";
+import CommonHeader from "@/common/CommonHeader.vue"
+import CommonMenu from "@/common/CommonMenu.vue"
 defineEmits(['test'])
 </script>
 

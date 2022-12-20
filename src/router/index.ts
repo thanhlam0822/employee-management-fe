@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 
-const ManagementDepartment = () => import('@/layout/ManageDepartment.vue')
-const ManagementEmployee = () => import('@/layout/ManageEmployee.vue')
-const ManagementProject = () => import('@/layout/ManageProject.vue')
+const ManagementDepartment = () => import('@/components/ListDepartment.vue')
+const ManagementEmployee = () => import('@/components/ListEmployee.vue')
+const ManagementProject = () => import('@/components/ListProject.vue')
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
