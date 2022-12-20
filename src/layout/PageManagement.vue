@@ -8,8 +8,8 @@
           <el-main>
             <div class="list">
               <slot name="filter"></slot>
-              <slot name="list">
-              </slot>
+              <router-view> </router-view>
+
             </div>
           </el-main>
           <el-footer>Footer</el-footer>

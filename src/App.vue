@@ -1,9 +1,5 @@
 <template>
   <CommonPageManagement>
-
-    <template #list>
-      <router-view> </router-view>
-    </template>
   </CommonPageManagement>
 
 </template>
