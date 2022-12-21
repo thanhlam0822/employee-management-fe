@@ -21,7 +21,7 @@
 <script lang="ts" setup>
 import {ref} from "vue"
 import axios from "axios";
-import CommonFilterAndPaginate from "@/common/CommonFilterAndPaginate.vue"
+import CommonFilterAndPaginate from "@/common/FilterAndPaginate.vue"
 import FilterProject from "@/components/FilterProject"
 let fakeData = ref([
   {

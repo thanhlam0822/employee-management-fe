@@ -21,8 +21,8 @@
 
 <script lang="ts" setup>
 import {defineEmits} from "vue";
-import CommonHeader from "@/common/CommonHeader.vue"
-import CommonMenu from "@/common/CommonMenu.vue"
+import CommonHeader from "@/common/Header.vue"
+import CommonMenu from "@/common/Menu.vue"
 defineEmits(['test'])
 </script>
 

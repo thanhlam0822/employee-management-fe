@@ -2,7 +2,7 @@
   <div class="common-menu">
     <ul class="common-menu-list">
         <li    class="common-menu-item" v-for="item in menuList" :key="item" >
-          <router-link     class="menu-link " :to="item.link">
+          <router-link class="menu-link " :to="item.link">
               {{item.item}}
           </router-link>
 
@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { ref} from 'vue'
 
-let selected = ref("Department Management")
+
 
 
 
@@ -24,11 +24,7 @@ let menuList = ref([
   {item:"Employee Management",link:"/manage-employee"},
   {item:"Project Management",link:"/manage-project"}
 ])
-let isActive = (index:string) => {
-  selected.value  = index
-  console.log(index)
 
-}
 </script>
 <style scoped>
 .common-menu {

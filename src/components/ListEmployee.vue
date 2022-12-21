@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import CommonFilterAndPaginate from "@/common/CommonFilterAndPaginate.vue"
+import CommonFilterAndPaginate from "@/common/FilterAndPaginate.vue"
 import FilterEmployee from "@/components/FilterEmployee.vue"
 import AddEmployee from  "@/components/AddEmployee.vue"
 import {ref} from "vue"

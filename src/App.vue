@@ -6,8 +6,8 @@
 
 <script lang="ts" setup>
 
-import CommonMenu   from "@/common/CommonMenu.vue"
-import CommonPageManagement from "@/layout/PageManagement.vue"
+
+import CommonPageManagement from "@/layout/PageAdmin.vue"
 </script>
 
 <style scoped>
