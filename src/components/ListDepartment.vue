@@ -10,8 +10,10 @@
     <el-table-column prop="establishDate" label=" Establish Date" />
     <el-table-column  label="Operations">
       <template #default="scope">
-        <edit-delete  @to-edit-page="goToEditPage(scope.row.id)"> </edit-delete>
+        <edit-department :id="scope.row.id" v-model:name="scope.row.name"> </edit-department>
+
       </template>
+
     </el-table-column>
   </el-table>
   <common-filter-and-paginate>
@@ -27,9 +29,9 @@
 
 <script lang="ts" setup>
 import CommonFilterAndPaginate from "@/common/FilterAndPaginate.vue"
-import EditDelete from "@/common/EditAndDelete.vue"
+import EditDepartment from "@/components/EditDepartment.vue"
 import FilterDepartment from "@/components/FilterDepartment.vue"
-import {ref} from "vue"
+import {ref, watch} from "vue"
 let pageSize=ref(5)
 let name=ref('')
 import axios from "axios";
@@ -48,43 +50,35 @@ let departmentList = ref([
 
 axios.get("http://localhost:8081/api/department/search?name=").then(
     response => {
-      departmentList.value.shift()
-      for(let data in response.data) {
-        departmentList.value.push(response.data[data])
-      }
+      departmentList.value = response.data
     })
 const handleCurrentChange = (index:number) => {
   axios.get(`http://localhost:8081/api/department/search?name=${name.value}&&pageNumber=${index-1}&&pageSize=${pageSize.value}`).then(
       response => {
-        departmentList.value = []
-        for(let data in response.data) {
-          departmentList.value.push(response.data[data])
-        }
+
+        departmentList.value = response.data
       })
 
 }
 const pageSizeChange = (size:number) => {
   axios.get(`http://localhost:8081/api/department/search?name=${name.value}&&pageSize=${size}`).then(
       response => {
-        departmentList.value = []
-          for(let data in response.data) {
-            departmentList.value.push(response.data[data])
-          }
+
+        departmentList.value = response.data
       })
 }
 const filterByName = (name:string) => {
 
   axios.get(`http://localhost:8081/api/department/search?name=${name}&&pageSize=${pageSize.value}`).then(
       response => {
-        departmentList.value = []
-        for(let data in response.data) {
-          departmentList.value.push(response.data[data])
-        }
+        departmentList.value = response.data
       })
 }
-let goToEditPage = (id:number) => {
-  router.push(`/edit-department/${id}`)
-}
+
+
+
+
+
 </script>
 
 <style scoped>

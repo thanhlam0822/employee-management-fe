@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-
-
 const ManagementDepartment = () => import('@/components/ListDepartment.vue')
 const ManagementEmployee = () => import('@/components/ListEmployee.vue')
 const ManagementProject = () => import('@/components/ListProject.vue')
@@ -9,24 +7,25 @@ const EditDepartment = () => import('@/components/EditDepartment.vue')
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    redirect: "/manage-department"
+    redirect: "/departments"
   },
   {
-    path: '/manage-department',
+    path: '/departments',
     component: ManagementDepartment
-
-
-
   },
   {
-    path: "/manage-employee",
+    path: '/departments/:id',
+    component: ManagementDepartment
+  },
+  {
+    path: "/employees",
     component: ManagementEmployee
   },
   {
-    path: "/manage-project",
+    path: "/projects",
     component: ManagementProject
   },
-  { path: "/edit-department/:id",
+  { path: "/departments/:id",
     component: EditDepartment
   }
 

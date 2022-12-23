@@ -20,9 +20,9 @@ import { ref} from 'vue'
 
 
 let menuList = ref([
-  {item:"Department Management",link:"/manage-department"},
-  {item:"Employee Management",link:"/manage-employee"},
-  {item:"Project Management",link:"/manage-project"}
+  {item:"Department Management",link:"/departments"},
+  {item:"Employee Management",link:"/employees"},
+  {item:"Project Management",link:"/projects"}
 ])
 
 </script>
