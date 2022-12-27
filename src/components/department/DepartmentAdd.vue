@@ -11,14 +11,14 @@
       <span>Name:</span>
      <div class="input">
        <el-col :span="20">
-         <el-input v-model="name" placeholder="Name Department" />
+         <el-input v-model="department.name" placeholder="Name Department" />
        </el-col>
      </div>
       <span>Responbility</span>
       <div class="input">
         <el-col :span="20">
           <el-input
-              v-model="responsibility"
+              v-model="department.responsibility"
 
               type="textarea"
               placeholder="Please input"
@@ -29,7 +29,7 @@
       <div class="input">
         <el-col :span="20">
           <el-date-picker
-              v-model="establishDate"
+              v-model="department.establishDate"
               type="date"
               placeholder="Pick a day"
               size="default"
@@ -53,24 +53,22 @@
 
 <script lang="ts" setup>
 import axios from "axios";
-import { ref } from 'vue'
+import { ref,defineEmits } from 'vue'
 const dialogVisible = ref(false)
 const handleClose = () => {
   dialogVisible.value = false
 }
-let name = ref('')
-let responsibility = ref('')
-let establishDate = ref('')
-let addDepartment = () => {
-  axios.post("http://localhost:8081/api/department/",{
-    name: name.value,
-    responsibility: responsibility.value,
-    establishDate: establishDate.value
+let emits = defineEmits(['reload'])
+let department = ref({
+  name: '',
+  responsibility: '',
+  establishDate: ''
+})
+let  addDepartment = async () => {
+ await axios.post("http://localhost:8081/api/department/",department.value)
+  dialogVisible.value = false;
+  emits('reload')
 
-  })
-       name.value = '',
-       responsibility.value = '',
-       establishDate.value = ''
 }
 </script>
 <style scoped>

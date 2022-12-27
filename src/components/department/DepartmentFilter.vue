@@ -8,15 +8,11 @@
 
     />
   </div>
-  <div class="add-department">
-    <add-department>
 
-    </add-department>
-  </div>
 </template>
 
 <script lang="ts" setup>
-import AddDepartment from "@/components/AddDepartment.vue"
+
 import {defineEmits,defineProps} from "vue";
 
 defineProps(['name'])

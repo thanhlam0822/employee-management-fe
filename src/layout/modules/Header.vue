@@ -1,9 +1,12 @@
 <template>
-<div class="common-header">
-  <el-container>
-    <el-header> <div class="common-header-title">Management Website</div> </el-header>
-  </el-container>
-</div>
+
+  <div class="common-header">
+    <el-container>
+      <el-header> <div class="common-header-title">Management Website</div> </el-header>
+    </el-container>
+  </div>
+
+
 </template>
 
 <script lang="ts" setup>

@@ -2,11 +2,10 @@
   <div class="pagination">
     <div class="show-entries">
       Show entries
+
     </div>
-    <el-col class="input" :span="1">
-      <slot name="input"></slot>
-    </el-col>
-    <slot name="paginate"></slot>
+
+     <slot name="paginate"></slot>
   </div>
 </template>
 

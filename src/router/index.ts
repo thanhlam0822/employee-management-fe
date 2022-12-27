@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-const ManagementDepartment = () => import('@/components/ListDepartment.vue')
-const ManagementEmployee = () => import('@/components/ListEmployee.vue')
+const ManagementDepartment = () => import('@/components/department/DepartmentList.vue')
+const ManagementEmployee = () => import('@/components/employee/EmployeeList.vue')
 const ManagementProject = () => import('@/components/ListProject.vue')
-const EditDepartment = () => import('@/components/EditDepartment.vue')
+const EditDepartment = () => import('@/components/department/DepartmentEdit.vue')
+const EmployeeEdit = () => import('@/components/employee/EmployeeEdit.vue')
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -18,7 +19,9 @@ const routes: Array<RouteRecordRaw> = [
     component: ManagementDepartment
   },
   {
-    path: "/employees",
+    path: "/employees",children: [
+      {path:":id",component:EmployeeEdit}
+    ],
     component: ManagementEmployee
   },
   {
